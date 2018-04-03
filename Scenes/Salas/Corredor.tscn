@@ -1,0 +1,305 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scripts/gameRoot.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Game_Screen/pauseBackground.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Game_Screen/continue.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Game_Screen/options.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Game_Screen/exit.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Game_Screen/yes.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Game_Screen/no.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Tilesset/image_part_050.png" type="Texture" id=8]
+[ext_resource path="res://Tres/House.tres" type="TileSet" id=9]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=10]
+
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 14, 6.5994 )
+
+[node name="gameRoot" type="Node2D"]
+
+script = ExtResource( 1 )
+
+[node name="pauseBackground" type="Sprite" parent="." index="0"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( 512.304, 384.665 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="resume" type="TextureButton" parent="pauseBackground" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -160.0
+margin_top = -120.0
+margin_right = 182.0
+margin_bottom = 8.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 3 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="options" type="TextureButton" parent="pauseBackground" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -160.0
+margin_top = -20.0
+margin_right = 182.0
+margin_bottom = 108.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 4 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="quit" type="TextureButton" parent="pauseBackground" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -160.0
+margin_top = 80.0
+margin_right = 182.0
+margin_bottom = 208.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 5 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="confirm" type="PopupMenu" parent="pauseBackground" index="3"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 128.0
+margin_top = 240.0
+margin_right = 896.0
+margin_bottom = 624.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = false
+items = [  ]
+hide_on_state_item_selection = false
+_sections_unfolded = [ "Rect" ]
+
+[node name="yes" type="TextureButton" parent="pauseBackground/confirm" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 140.0
+margin_top = 240.0
+margin_right = 268.0
+margin_bottom = 336.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 6 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="no" type="TextureButton" parent="pauseBackground/confirm" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 504.0
+margin_top = 240.0
+margin_right = 632.0
+margin_bottom = 336.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 7 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Background" type="Sprite" parent="." index="1"]
+
+position = Vector2( 286.859, 123.266 )
+scale = Vector2( 55.0554, 40.9688 )
+texture = ExtResource( 8 )
+
+[node name="TileMap" type="TileMap" parent="." index="2"]
+
+position = Vector2( 113.12, 68.5563 )
+mode = 0
+tile_set = ExtResource( 9 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 2
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -65535, 33, 0, -65534, 161, 0, -65533, 161, 0, -65532, 161, 0, -65531, 161, 0, -65530, 161, 0, -65529, 161, 0, -65528, 161, 0, -65527, 161, 0, -65526, 161, 0, -65525, 161, 0, -65524, 161, 0, -65523, 161, 0, -65522, 161, 0, -65521, 161, 0, -65520, 161, 0, -65519, 161, 0, -65518, 34, 0, 1, 47, 0, 2, 7, 0, 3, 7, 0, 4, 7, 0, 5, 7, 0, 6, 7, 0, 7, 7, 0, 8, 7, 0, 9, 7, 0, 10, 7, 0, 11, 7, 0, 12, 7, 0, 13, 7, 0, 14, 7, 0, 15, 7, 0, 16, 7, 0, 17, 7, 0, 18, 45, 0, 65537, 47, 0, 65538, 22, 0, 65539, 22, 0, 65540, 22, 0, 65541, 22, 0, 65542, 22, 0, 65543, 22, 0, 65544, 22, 0, 65545, 22, 0, 65546, 22, 0, 65547, 22, 0, 65548, 22, 0, 65549, 22, 0, 65550, 22, 0, 65551, 22, 0, 65552, 22, 0, 65553, 22, 0, 65554, 45, 0, 131073, 47, 0, 131074, 37, 0, 131075, 37, 0, 131076, 37, 0, 131077, 37, 0, 131078, 37, 0, 131079, 37, 0, 131080, 37, 0, 131081, 37, 0, 131082, 37, 0, 131083, 37, 0, 131084, 37, 0, 131085, 37, 0, 131086, 37, 0, 131087, 37, 0, 131088, 37, 0, 131089, 37, 0, 131090, 45, 0, 196609, 47, 0, 196610, 52, 0, 196611, 52, 0, 196612, 52, 0, 196613, 52, 0, 196614, 52, 0, 196615, 52, 0, 196616, 52, 0, 196617, 52, 0, 196618, 52, 0, 196619, 52, 0, 196620, 52, 0, 196621, 52, 0, 196622, 52, 0, 196623, 52, 0, 196624, 52, 0, 196625, 52, 0, 196626, 45, 0, 262145, 47, 0, 262146, 2, 0, 262147, 2, 0, 262148, 0, 0, 262149, 1, 0, 262150, 2, 0, 262151, 0, 0, 262152, 2, 0, 262153, 1, 0, 262154, 2, 0, 262155, 2, 0, 262156, 2, 0, 262157, 1, 0, 262158, 2, 0, 262159, 0, 0, 262160, 2, 0, 262161, 1, 0, 262162, 45, 0, 327681, 47, 0, 327682, 2, 0, 327683, 1, 0, 327684, 2, 0, 327685, 2, 0, 327686, 2, 0, 327687, 1, 0, 327688, 2, 0, 327689, 2, 0, 327690, 0, 0, 327691, 1, 0, 327692, 2, 0, 327693, 2, 0, 327694, 2, 0, 327695, 1, 0, 327696, 2, 0, 327697, 0, 0, 327698, 45, 0, 393217, 47, 0, 393218, 0, 0, 393219, 2, 0, 393220, 2, 0, 393221, 1, 0, 393222, 0, 0, 393223, 2, 0, 393224, 2, 0, 393225, 1, 0, 393226, 2, 0, 393227, 0, 0, 393228, 2, 0, 393229, 1, 0, 393230, 2, 0, 393231, 2, 0, 393232, 0, 0, 393233, 1, 0, 393234, 45, 0, 458753, 48, 0, 458754, 31, 0, 458755, 31, 0, 458756, 31, 0, 458757, 31, 0, 458758, 31, 0, 458759, 31, 0, 458760, 31, 0, 458761, 31, 0, 458762, 31, 0, 458763, 31, 0, 458764, 31, 0, 458765, 31, 0, 458766, 31, 0, 458767, 31, 0, 458768, 31, 0, 458769, 31, 0, 458770, 49, 0 )
+_sections_unfolded = [ "Cell", "Collision" ]
+
+[node name="TileMap2" type="TileMap" parent="TileMap" index="0"]
+
+mode = 0
+tile_set = ExtResource( 9 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 65539, 11, 0, 65540, 12, 0, 65545, 8, 0, 65546, 9, 0, 65547, 10, 0, 131075, 26, 0, 131076, 27, 0, 131081, 23, 0, 131082, 24, 0, 131083, 25, 0, 196611, 41, 0, 196612, 42, 0, 327689, 53, 0, 327690, 54, 0, 327691, 55, 0, 393225, 66, 0, 393226, 67, 0, 393227, 68, 0 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="TileMap3" type="TileMap" parent="TileMap/TileMap2" index="0"]
+
+mode = 0
+tile_set = ExtResource( 9 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 65545, 139, 0, 65546, 140, 0, 65547, 162, 0, 131081, 191, 0, 131083, 192, 0, 196617, 170, 0, 196619, 171, 0 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="Player" parent="." index="3" instance=ExtResource( 10 )]
+
+position = Vector2( 369.038, 146.352 )
+
+[node name="TileMap4" type="TileMap" parent="." index="4"]
+
+position = Vector2( 113.12, 68.5563 )
+mode = 0
+tile_set = ExtResource( 9 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 262159, 5, 0, 262160, 6, 0, 327695, 20, 0, 327696, 21, 0, 393231, 35, 0, 393232, 36, 0 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="PortaQuarto" type="Area2D" parent="." index="5"]
+
+editor/display_folded = true
+position = Vector2( 369, 171.05 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortaQuarto" index="0"]
+
+position = Vector2( 0.101501, 10.9566 )
+shape = SubResource( 1 )
+
+[node name="PortaCozinha" type="Area2D" parent="." index="6"]
+
+editor/display_folded = true
+position = Vector2( 176.852, 117.277 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PortaCozinha" index="0"]
+
+position = Vector2( 0.101501, 10.9566 )
+shape = SubResource( 1 )
+
+
